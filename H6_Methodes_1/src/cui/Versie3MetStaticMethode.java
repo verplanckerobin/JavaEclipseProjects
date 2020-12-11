@@ -1,0 +1,33 @@
+package cui;
+
+import java.util.Scanner;
+
+public class Versie3MetStaticMethode
+{
+	public static void main(String args[]) 
+    {
+       // Scanner scan = new Scanner(System.in);
+        int getal1, getal2;
+/*
+        do 
+        {
+            System.out.print("Geef een getal verschillend van 0 in: ");
+            getal1 = scan.nextInt();
+        } while (getal1 == 0);
+
+        do 
+        {
+            System.out.print("Geef een getal verschillend van 5 in: ");
+            getal2 = scan.nextInt();
+        } while (getal2 == 5);
+*/
+        getal1 = Versie3Hulpklasse.geefGetalVerschillendVan(0);
+        getal2 = Versie3Hulpklasse.geefGetalVerschillendVan(5);
+        
+        System.out.printf("De ingegeven getallen zijn %d en %d%n",
+        		getal1, getal2);
+    }
+	
+	
+	
+}
