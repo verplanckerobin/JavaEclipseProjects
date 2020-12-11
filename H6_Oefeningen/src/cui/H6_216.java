@@ -32,6 +32,8 @@ public class H6_216 {
 			System.out.print("Geef je beginkapitaal (>0, 0 om te stoppen): ");
 			beginkapitaal = s.nextDouble();
 			
+			s.close();
+			
 		}
 		
 	}
