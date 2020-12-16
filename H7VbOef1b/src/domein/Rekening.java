@@ -7,13 +7,13 @@ public class Rekening
     private String houder;
     
     public Rekening() {
-    	this(0L, "Onbekend");
+    	this(0, "onbekend");
     }
 
     public Rekening(long rekeningNr, String houder)
     {
     	controleerRekeningNr(rekeningNr);
-    	this.rekeningNr = rekeningNr;
+        this.rekeningNr = rekeningNr;
         setHouder(houder);
     }
 
