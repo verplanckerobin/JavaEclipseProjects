@@ -5,23 +5,26 @@ public class Kluis {
 	private String code;
 
 	public Kluis(String code) {
+		controleerCode(code);
 		this.code = code;
 	}
 
 	public String getCode() {
 		return code;
 	}
-
-	public final void setCode(String code) {
-		this.code = code;
-	}
 	
 	private void controleerCode(String code) {
-		throw new UnsupportedOperationException();
+		
+		if(code == null || code.length() != 4)
+			throw new IllegalArgumentException("Code moet bestaan uit 4 karakters");
+		
+		if(code.contains(" "))
+			throw new IllegalArgumentException("Code mag geen spaties bevatten");
 	}
 	
 	public boolean valideerCode(String code) {
-		throw new UnsupportedOperationException();
+		
+		return this.code.equals(code);
 	}
 
 }

@@ -12,17 +12,18 @@ import domein.Kluis;
 class KluisTest {
 
 	private Kluis k;
+	private static final String GELDIGE_CODE = "Ab1*";
 	
 	@BeforeEach
 	void before() {
 		
-		k = new Kluis("Ab1*");
+		k = new Kluis(GELDIGE_CODE);
 	}
 	
 	@Test
 	void maakKluis_geldigdeCode_maaktKluis() {
 		
-		Assertions.assertEquals("Ab1*", k.getCode());  
+		Assertions.assertEquals(GELDIGE_CODE, k.getCode());  
 	}
 	
 	@ParameterizedTest
@@ -39,6 +40,25 @@ class KluisTest {
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> new Kluis(code));
 	}
-	 
+	
+	@Test
+	void valideerCode_juisteCode_returnTrue () {
+		
+		String code = GELDIGE_CODE;
+		
+		boolean correct = k.valideerCode(code);
+		
+		Assertions.assertTrue(correct);
+	} 
+	
+	@Test
+	void valideerCode_fouteCode_returnFalse () {
+		
+		String code = "ABCD";
+		
+		boolean correct = k.valideerCode(code);
+		
+		Assertions.assertFalse(correct);
+	}
 
 }
