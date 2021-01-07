@@ -28,7 +28,6 @@ public class LottoApplicatie2 {
 		
 		System.out.printf("%nDe winst is %d", dc.geefWinst(nummers));
 		
-
 	}
 
 }
