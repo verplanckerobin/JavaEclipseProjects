@@ -5,37 +5,32 @@ import java.util.Scanner;
 import domein.DomeinController;
 
 public class KopOfMuntApplicatie {
-
+	
 	public static void main(String[] args) {
 		
 		DomeinController dc = new DomeinController();
-		Scanner input = new Scanner(System.in);
+		Scanner invoer = new Scanner(System.in);
 		int moeilijkheidsgraad;
 		
 		do {
-			System.out.print("Geef de moeilijkheidsgraad (1 = gemakkelijk, 2 = normaal): ");
-			moeilijkheidsgraad = input.nextInt();
+			System.out.print("Geef de moeilijkheidsgraad van het spel dat je wil spelen (1=gemakkelijk, 2=normaal):");
+			moeilijkheidsgraad = invoer.nextInt();
 		} while (moeilijkheidsgraad != 1 && moeilijkheidsgraad != 2);
 		
 		dc.maakSpel(moeilijkheidsgraad);
+		System.out.print("Doe een poging om de code te kraken: ");
+		String code = invoer.next();
 		
-		System.out.print("Geef je keuze in (K = Kop, M = Munt): ");
-		String geradenCode = input.next();
-		
-		while(!dc.isGeraden(geradenCode)) {
-			
-			System.out.printf("Je geraden code %s levert een score van %d op.%n", geradenCode, dc.geefScore(geradenCode));
-			
-			System.out.print("Geef je keuze in (K = Kop, M = Munt): ");
-			geradenCode = input.next();
+		while (!dc.isGeraden(code)) {
+			System.out.printf("Jouw code %s levert een score van %d op.%n", code, dc.geefScore(code));
+			System.out.print("Doe een poging om de code te kraken: ");
+			code = invoer.next();
 		}
 		
-		System.out.println("Je hebt de code gekraakt!");
-		
-		for (String s: dc.geefSpelInfo())
+		System.out.println("Hoera! Je hebt de code gekraakt.");
+		for (String s : dc.geefSpelInfo())
 			System.out.println(s);
-		input.close();
 		
+		invoer.close();
 	}
-
 }
